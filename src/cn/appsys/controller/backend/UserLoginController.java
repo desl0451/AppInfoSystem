@@ -51,4 +51,11 @@ public class UserLoginController {
 			return "backendlogin";
 		}
 	}
+
+	@RequestMapping(value = "/backend/main")
+	public String main() {
+		return "backend/main";
+	}
+	
+
 }
