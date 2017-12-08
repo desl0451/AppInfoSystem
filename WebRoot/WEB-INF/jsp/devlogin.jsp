@@ -32,10 +32,10 @@
 					<form name="form1" method="get" action="${pageContext.request.contextPath }/dev/dologin.html">
 						<h1>APP开发者平台</h1>
 						<div>
-							<input type="text" class="form-control" name="devCode" placeholder="请输入用户名" required="" />
+							<input type="text" class="form-control" name="devCode" value="admin" placeholder="请输入用户名" required="" />
 						</div>
 						<div>
-							<input type="password" class="form-control" name="devPassword"	placeholder="请输入密码" required="" />
+							<input type="password" class="form-control" name="devPassword" value="123456"	placeholder="请输入密码" required="" />
 						</div>
 						<div>
 			                <a class="btn btn-default submit" href="javascript:document.form1.submit()">登  录</a>

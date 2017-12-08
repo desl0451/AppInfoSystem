@@ -51,4 +51,16 @@ public class UserLoginController {
 			return "backendlogin";
 		}
 	}
+
+	@RequestMapping(value = "/backend/main")
+	public String main() {
+		return "backend/main";
+	}
+	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		// 清除session
+		session.removeAttribute(Constants.USER_SESSION);
+		return "backendlogin";
+	}
 }
