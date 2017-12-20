@@ -1065,6 +1065,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
     <!-- /Doughnut Chart -->
     
+<<<<<<< HEAD
     <!-- bootstrap-daterangepicker -->
     <script>
       $(document).ready(function() {

@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>	
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -14,11 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>查询学员信息</title>
+	<title>添加学员信息</title>
 	<!-- 头部引用开始 -->
 	<%@include file="/WEB-INF/jsp/backend/common/header.jsp"%>
 	<!-- 头部引用结束 -->
-	
   </head>
 
   <body class="nav-md">
@@ -32,15 +29,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             <div class="clearfix"></div>
 
-			<!-- menu profile quick info -->
-			<%@include file="/WEB-INF/jsp/backend/common/profileinfo.jsp" %>
-			<!-- /menu profile quick info -->
-			
-			<br />
-			<!-- sidebar menu begin -->
-			<%@include file="/WEB-INF/jsp/backend/common/sidebar.jsp" %>
-			<!-- sidebar menu end -->
-            
+            <!-- menu profile quick info -->
+            <%@include file="/WEB-INF/jsp/backend/common/profileinfo.jsp" %>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <%@include file="/WEB-INF/jsp/backend/common/sidebar.jsp" %>
+            <!-- /sidebar menu -->
+
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -162,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>学员信息 <small>Some examples to get you started</small></h3>
+                <h3>Form Validation</h3>
               </div>
 
               <div class="title_right">
@@ -170,22 +168,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
+                              <button class="btn btn-default" type="button">Go!</button>
+                          </span>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="clearfix"></div>
 
             <div class="row">
-        
-          
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>学员信息 <small>Information</small></h2>
+                    <h2>Form validation <small>sub title</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -204,45 +199,93 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </p>
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>学号编号</th>
-                          <th>学生姓名</th>
-                          <th>爱好</th>
-                          <th>年龄</th>
-                          <th>出生日期</th>
-                          <th>电话</th>
-                          <th>学生地址</th>
-                        </tr>
-                      </thead>
 
+                    <form class="form-horizontal form-label-left" novalidate>
 
-                      <tbody>
-                      	<c:forEach items="${studentSession}" var="s">
-                        <tr>
-							<td>${s.sId}</td>
-							<td>${s.sName}</td>
-							<td>${s.sHobby}</td>
-							<td>${s.sAge}</td>
-							<td>
-								<fmt:formatDate value="${s.sBornDate}" pattern="yyyy-MM-dd"/>
-							</td>
-							<td>${s.sPhone}</td>
-							<td>${s.sAddress}</td>                          
-                        </tr>
-                       </c:forEach>
-                      </tbody>
-                    </table>
+                      <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
+                      </p>
+                      <span class="section">Personal Info</span>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Number <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Website URL <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="url" id="website" name="website" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">Occupation <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="occupation" type="text" name="occupation" data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label for="password" class="control-label col-md-3">Password</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="tel" id="telephone" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Textarea <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="textarea" required="required" name="textarea" class="form-control col-md-7 col-xs-12"></textarea>
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
-
-    
-           </div>
+            </div>
           </div>
         </div>
         <!-- /page content -->
@@ -253,89 +296,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
 
-
-
-
-    <!-- Datatables -->
+    <!-- validator -->
     <script>
-      $(document).ready(function() {
-        var handleDataTableButtons = function() {
-          if ($("#datatable-buttons").length) {
-            $("#datatable-buttons").DataTable({
-              dom: "Bfrtip",
-              buttons: [
-                {
-                  extend: "copy",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "csv",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "excel",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "pdfHtml5",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "print",
-                  className: "btn-sm"
-                },
-              ],
-              responsive: true
-            });
-          }
-        };
+      // initialize the validator function
+      validator.message.date = 'not a real date';
 
-        TableManageButtons = function() {
-          "use strict";
-          return {
-            init: function() {
-              handleDataTableButtons();
-            }
-          };
-        }();
+      // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+      $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
 
-        $('#datatable').dataTable();
+      $('.multi.required').on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+      });
 
-        $('#datatable-keytable').DataTable({
-          keys: true
-        });
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
 
-        $('#datatable-responsive').DataTable();
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+          submit = false;
+        }
 
-        $('#datatable-scroller').DataTable({
-          ajax: "js/datatables/json/scroller-demo.json",
-          deferRender: true,
-          scrollY: 380,
-          scrollCollapse: true,
-          scroller: true
-        });
+        if (submit)
+          this.submit();
 
-        $('#datatable-fixed-header').DataTable({
-          fixedHeader: true
-        });
-
-        var $datatable = $('#datatable-checkbox');
-
-        $datatable.dataTable({
-          'order': [[ 1, 'asc' ]],
-          'columnDefs': [
-            { orderable: false, targets: [0] }
-          ]
-        });
-        $datatable.on('draw.dt', function() {
-          $('input').iCheck({
-            checkboxClass: 'icheckbox_flat-green'
-          });
-        });
-
-        TableManageButtons.init();
+        return false;
       });
     </script>
-    <!-- /Datatables -->
+    <!-- /validator -->
   </body>
 </html>

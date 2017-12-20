@@ -2,23 +2,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>	
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>查询学员信息</title>
-	<!-- 头部引用开始 -->
-	<%@include file="/WEB-INF/jsp/backend/common/header.jsp"%>
-	<!-- 头部引用结束 -->
-	
+<title>查询学员信息</title>
+<!-- 头部引用开始 -->
+<%@include file="/WEB-INF/jsp/backend/common/header.jsp"%>
+<!-- 头部引用结束 -->
   </head>
 
   <body class="nav-md">
@@ -32,14 +32,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             <div class="clearfix"></div>
 
-			<!-- menu profile quick info -->
-			<%@include file="/WEB-INF/jsp/backend/common/profileinfo.jsp" %>
-			<!-- /menu profile quick info -->
-			
-			<br />
+        	<!-- menu profile quick info -->
+            <%@include file="/WEB-INF/jsp/backend/common/profileinfo.jsp" %>
+            <!-- /menu profile quick info -->
+
+            <br />
 			<!-- sidebar menu begin -->
-			<%@include file="/WEB-INF/jsp/backend/common/sidebar.jsp" %>
-			<!-- sidebar menu end -->
+            <%@include file="/WEB-INF/jsp/backend/common/sidebar.jsp" %>
+            <!-- sidebar menu end -->
             
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>学员信息 <small>Some examples to get you started</small></h3>
+                <h3>学员信息 <small>基本信息</small></h3>
               </div>
 
               <div class="title_right">
@@ -179,18 +179,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             <div class="clearfix"></div>
 
-            <div class="row">
-        
-          
-              <div class="col-md-12 col-sm-12 col-xs-12">
+           
+  			<div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>学员信息 <small>Information</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="#">Settings 1</a>
                           </li>
@@ -205,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
                     </p>
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
@@ -220,9 +217,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </tr>
                       </thead>
 
-
                       <tbody>
-                      	<c:forEach items="${studentSession}" var="s">
+                        <c:forEach items="${studentSession}" var="s">
                         <tr>
 							<td>${s.sId}</td>
 							<td>${s.sName}</td>
@@ -241,8 +237,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
               </div>
 
-    
-           </div>
+     
+	 
+	 
+	 
+            </div>
           </div>
         </div>
         <!-- /page content -->
@@ -250,12 +249,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <!-- footer content -->
 		<%@include file="/WEB-INF/jsp/backend/common/footer.jsp" %>
 		<!-- /footer content -->
-      </div>
-    </div>
-
-
-
-
+   </div>
+</div>
     <!-- Datatables -->
     <script>
       $(document).ready(function() {

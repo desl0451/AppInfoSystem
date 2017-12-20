@@ -1,12 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 
-	   <div class="pull-right">
-               	版权归北大青鸟
-       </div>
-       <div class="clearfix"></div>
-	</div>
+<div class="pull-right">
+           	版权归北大青鸟
 </div>
+<div class="clearfix"></div>
 <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/common/time.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/common/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/common/common.js"></script>

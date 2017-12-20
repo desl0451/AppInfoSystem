@@ -15,7 +15,7 @@ import cn.appsys.service.backend.BackendUserService;
 import cn.appsys.tools.Constants;
 
 @Controller
-@RequestMapping(value = "/manager")
+@RequestMapping(value="/manager")
 public class UserLoginController {
 	private Logger logger = Logger.getLogger(UserLoginController.class);
 
